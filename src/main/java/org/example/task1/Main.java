@@ -9,9 +9,9 @@ public class Main {
     enum caseToTest {HashMap, ConcurrentHashMap, SynchronizedMap, ThreadSafeMap};
     public static void main(String[] args) {
 
-        Map<Integer, Integer> map = testTask1(caseToTest.ConcurrentHashMap);
-        Thread writerThread = new Thread(new WriterRunnable(map));
-        Thread readerThread = new Thread(new ReaderRunnable(map));
+        Map<Integer, Integer> map = testTask1(caseToTest.SynchronizedMap);
+        Thread writerThread = new Thread(new SyncWriterRunnable(map));
+        Thread readerThread = new Thread(new SyncReaderRunnable(map));
         writerThread.start();
         readerThread.start();
 
