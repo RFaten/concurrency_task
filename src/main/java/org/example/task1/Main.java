@@ -8,10 +8,11 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Main {
     enum caseToTest {HashMap, ConcurrentHashMap, SynchronizedMap, ThreadSafeMap};
     public static void main(String[] args) {
-
-        Map<Integer, Integer> map = testTask1(caseToTest.SynchronizedMap);
-        Thread writerThread = new Thread(new SyncWriterRunnable(map));
-        Thread readerThread = new Thread(new SyncReaderRunnable(map));
+        // When using the SynchronizedMap use the SyncWriterRunnable and SyncReaderRunnable
+        // else use the WriterRunnable and ReaderRunnable
+        Map<Integer, Integer> map = testTask1(caseToTest.ThreadSafeMap);
+        Thread writerThread = new Thread(new WriterRunnable(map));
+        Thread readerThread = new Thread(new ReaderRunnable(map));
         writerThread.start();
         readerThread.start();
 
