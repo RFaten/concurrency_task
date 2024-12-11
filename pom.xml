@@ -7,6 +7,10 @@
     <groupId>org.example</groupId>
     <artifactId>concurrency_task</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>src/main/java/org/example/task5</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
